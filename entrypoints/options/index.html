@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="manifest.open_in_tab" content="true" />
+    <title>Tab tidy options</title>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="options-header-inner">
+        <div class="brand">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5V4a1 1 0 0 1 1-1h5l2 3h4a2 2 0 0 1 2 2v9"/><path d="M3 8a2 2 0 0 1 2-2h4l2 3h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="m7 14 2 2 4-4"/></svg>
+          <span class="brand-name">Tab tidy</span>
+        </div>
+        <span class="header-caption">Options</span>
+      </div>
+    </header>
+
+    <main class="options-main" id="options-main" aria-busy="true">
+      <div class="options-intro">
+        <h1>Options</h1>
+        <p>Choose defaults for your manual actions. Nothing runs automatically.</p>
+      </div>
+      <form id="settings-form">
+        <fieldset id="settings-fields" disabled>
+          <legend class="sr-only">Tab tidy settings</legend>
+          <section class="settings-section" aria-labelledby="defaults-heading">
+            <h2 id="defaults-heading">Scope and sort</h2>
+            <div class="field">
+              <label for="scope">Default scope</label>
+              <select id="scope" name="scope"><option value="current">This window (default)</option><option value="all">All windows</option></select>
+              <p class="hint">The popup can use a different scope for one session. Merge always targets the current window.</p>
+            </div>
+            <div class="field field-pair">
+              <div class="field">
+                <label for="sortBy">Sort by</label>
+                <select id="sortBy" name="sortBy"><option value="site">Site (default)</option><option value="title">Title</option><option value="url">URL</option><option value="custom">Custom site priority</option><option value="encounter">Site encounter order</option></select>
+              </div>
+              <div class="field">
+                <label for="sortDirection">Direction</label>
+                <select id="sortDirection" name="sortDirection"><option value="asc">Ascending (default)</option><option value="desc">Descending</option></select>
+                <p class="hint" id="direction-note">Ascending sorts from A to Z.</p>
+              </div>
+            </div>
+            <details class="settings-details">
+              <summary>Custom priority and extra sort options</summary>
+              <div class="detail-fields">
+                <div class="field">
+                  <label for="siteOrder">Site priority</label>
+                  <textarea id="siteOrder" name="siteOrder" rows="4" placeholder="example.com&#10;mail.example.org" spellcheck="false" aria-describedby="site-order-note"></textarea>
+                  <p class="hint" id="site-order-note">Used for Custom site priority. Enter one hostname per line, in your preferred order. The default list is empty.</p>
+                </div>
+                <label class="check-label"><input id="sortGroupsByTitle" name="sortGroupsByTitle" type="checkbox" /><span>Order groups by name<span class="hint">Off by default. Use group names when sorting groups.</span></span></label>
+                <label class="check-label"><input id="sortPinned" name="sortPinned" type="checkbox" /><span>Also sort pinned tabs<span class="hint">Off by default. Pinned tabs remain pinned.</span></span></label>
+              </div>
+            </details>
+          </section>
+
+          <section class="settings-section" aria-labelledby="groups-heading">
+            <h2 id="groups-heading">Tab groups</h2>
+            <label class="check-label"><input id="preserveGroups" name="preserveGroups" type="checkbox" /><span>Preserve existing groups <span class="default-note">(default)</span><span class="hint">Group by site skips tabs already in groups. Sort and merge preserve group metadata.</span></span></label>
+            <div class="field">
+              <label for="minimumGroupSize">Minimum tabs in a new group</label>
+              <input class="minimum-input" id="minimumGroupSize" name="minimumGroupSize" type="number" min="2" max="20" step="1" required aria-describedby="minimum-note" />
+              <p class="hint" id="minimum-note">From 2 to 20 tabs per site. The default is 2.</p>
+            </div>
+            <label class="check-label"><input id="collapseNewGroups" name="collapseNewGroups" type="checkbox" /><span>Collapse new groups<span class="hint">Off by default. Existing groups keep their collapse state.</span></span></label>
+          </section>
+
+          <section class="settings-section" aria-labelledby="duplicates-heading">
+            <h2 id="duplicates-heading">Duplicate tabs</h2>
+            <div class="field">
+              <label for="keeper">Which copy to keep</label>
+              <select id="keeper" name="keeper"><option value="recent">Most recently used (default)</option><option value="oldest">Least recently used</option></select>
+              <p class="hint">Protected copies always stay open, even when there is more than one.</p>
+            </div>
+            <fieldset class="field">
+              <legend>Keep these tabs open</legend>
+              <label class="check-label"><input id="protectPinned" name="protectPinned" type="checkbox" /><span>Pinned tabs <span class="default-note">(default)</span></span></label>
+              <label class="check-label"><input id="protectActive" name="protectActive" type="checkbox" /><span>The active tab in each window <span class="default-note">(default)</span></span></label>
+              <label class="check-label"><input id="protectAudible" name="protectAudible" type="checkbox" /><span>Tabs that play audio <span class="default-note">(default)</span></span></label>
+            </fieldset>
+            <details class="settings-details">
+              <summary>URL match rules</summary>
+              <div class="detail-fields">
+                <p class="hint">The default compares the complete URL. These options make the match less exact.</p>
+                <label class="check-label"><input id="ignoreHash" name="ignoreHash" type="checkbox" /><span>Ignore the #fragment<span class="hint">Off by default. Different sections or routes can then count as the same page.</span></span></label>
+                <label class="check-label"><input id="ignoreQuery" name="ignoreQuery" type="checkbox" aria-describedby="query-danger" /><span>Ignore ?query parameters<span class="hint">Off by default. Compare only the address before the query.</span></span></label>
+                <p class="danger-note" id="query-danger">Use with care. Different searches, documents, or account pages can share a path. Ignoring queries can close a page with different content.</p>
+              </div>
+            </details>
+          </section>
+
+          <section class="settings-section" aria-labelledby="exclusions-heading">
+            <h2 id="exclusions-heading">Excluded sites</h2>
+            <div class="field">
+              <label class="sr-only" for="excludedSites">Excluded hostnames</label>
+              <textarea id="excludedSites" name="excludedSites" rows="3" placeholder="example.com&#10;work.example.org" spellcheck="false" aria-describedby="excluded-note excluded-example"></textarea>
+              <p class="hint" id="excluded-note">All bulk actions skip these sites. Enter one hostname per line, without a URL, path, or wildcard. The default list is empty.</p>
+              <p class="hint" id="excluded-example"><code>example.com</code> covers that hostname and every subdomain, such as <code>mail.example.com</code>. It does not cover <code>notexample.com</code>.</p>
+            </div>
+          </section>
+
+          <section class="settings-section" aria-labelledby="merge-heading">
+            <h2 id="merge-heading">Merge windows</h2>
+            <p class="hint">Merge gathers eligible source windows into the current window. Normal and incognito windows remain separate.</p>
+            <details class="settings-details">
+              <summary>Extra source windows</summary>
+              <div class="detail-fields">
+                <label class="check-label"><input id="mergeMinimized" name="mergeMinimized" type="checkbox" /><span>Include minimized windows<span class="hint">Off by default.</span></span></label>
+                <label class="check-label"><input id="mergePopups" name="mergePopups" type="checkbox" /><span>Include popup windows<span class="hint">Off by default. This includes app-like popup windows.</span></span></label>
+              </div>
+            </details>
+          </section>
+        </fieldset>
+
+        <div class="save-bar">
+          <button class="primary" id="save-button" type="submit" disabled>Save options</button>
+          <button id="reset-button" type="button" disabled>Restore defaults</button>
+          <span class="hint" id="save-note">Read saved options…</span>
+        </div>
+      </form>
+      <div class="options-feedback">
+        <p class="status" id="settings-status" aria-live="polite" aria-atomic="true">Read saved options…</p>
+        <button class="text-button" id="reload-button" type="button" hidden>Reload saved options</button>
+      </div>
+      <section class="settings-section" aria-labelledby="shortcuts-heading">
+        <h2 id="shortcuts-heading">Keyboard shortcuts</h2>
+        <p class="hint">Assign shortcuts through the browser. Shortcuts run only when you press them.</p>
+        <button class="text-button" id="shortcuts-button" type="button">Open browser shortcuts<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7m0-7L10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg></button>
+      </section>
+      <p class="hint privacy-note">Settings stay in this browser, in local storage. Recovery reopens duplicate pages but cannot guarantee unsaved content.</p>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

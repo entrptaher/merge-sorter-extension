@@ -1,0 +1,24 @@
+{
+  "origin": "Original artwork authored for Tab tidy, not copied from the supplied extensions.",
+  "description": "Two outlined browser tabs with a check, on a forest-green rounded square.",
+  "source": "assets/create-icons.py",
+  "method": "Analytic stroke rasterization with 4x supersampling; PNG encoded with Python stdlib struct and zlib.",
+  "palette": {
+    "background": "#21533e",
+    "foreground": "#f5fcf7"
+  },
+  "viewBox": [
+    0,
+    0,
+    24,
+    24
+  ],
+  "strokeWidth": 1.75,
+  "externalAssets": [],
+  "files": [
+    "icon-16.png",
+    "icon-32.png",
+    "icon-48.png",
+    "icon-128.png"
+  ]
+}

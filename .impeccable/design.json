@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-14T12:56:30.622Z",
+  "title": "Design System: Tab tidy",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Forest green" },
+      "dark-accent": { "role": "primary", "displayName": "Dark-theme pale green" },
+      "surface": { "role": "neutral", "displayName": "Cool pale surface" },
+      "panel": { "role": "neutral", "displayName": "Control panel" },
+      "ink": { "role": "neutral", "displayName": "Primary text" }
+    },
+    "typographyMeta": {
+      "body": { "displayName": "Native system text", "purpose": "Shared popup and options text; controls inherit the system stack." },
+      "headline": { "displayName": "Options heading", "purpose": "Options page title." },
+      "title": { "displayName": "Section heading", "purpose": "Options section titles." },
+      "brand": { "displayName": "Identity label", "purpose": "Tab tidy in both headers." },
+      "hint": { "displayName": "Supporting text", "purpose": "Control explanations and default notes." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      { "name": "popup-max-width", "value": "399px" },
+      { "name": "options-max-width", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Accent action used for duplicate closure and the options save action.",
+      "html": "<button class=\"ds-primary\" type=\"button\">Close duplicates</button>",
+      "css": ".ds-primary { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2, 8px); min-height: 36px; padding: var(--space-2, 8px) var(--space-3, 12px); border: 1px solid var(--accent, #21533e); border-radius: var(--radius, 8px); background: var(--accent, #21533e); color: var(--on-accent, #f5fcf7); font: 600 14px/1.25 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; } .ds-primary:hover:not(:disabled) { background: var(--accent-hover, #173d2d); border-color: var(--accent-hover, #173d2d); } .ds-primary:focus-visible { outline: 2px solid var(--focus, #397e5b); outline-offset: 3px; } .ds-primary:disabled { opacity: .48; cursor: default; } @media (pointer: coarse) { .ds-primary { min-height: 44px; } }"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Panel-filled action with border, hover, active, and disabled states.",
+      "html": "<button class=\"ds-secondary\" type=\"button\">Merge into this window</button>",
+      "css": ".ds-secondary { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2, 8px); min-height: 36px; padding: var(--space-2, 8px) var(--space-3, 12px); border: 1px solid var(--line, #cbd8d3); border-radius: var(--radius, 8px); background: var(--panel, #ffffff); color: var(--ink, #20342e); font: 600 14px/1.25 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; } .ds-secondary:hover:not(:disabled) { background: var(--surface-soft, #e8eff0); border-color: var(--muted, #526861); } .ds-secondary:active:not(:disabled) { background: var(--selected, #dceae1); } .ds-secondary:focus-visible { outline: 2px solid var(--focus, #397e5b); outline-offset: 3px; } .ds-secondary:disabled { opacity: .48; cursor: default; } @media (pointer: coarse) { .ds-secondary { min-height: 44px; } }"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Transparent recovery or retry action with an underline on hover.",
+      "html": "<button class=\"ds-text\" type=\"button\">Undo last action</button>",
+      "css": ".ds-text { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2, 8px); min-height: 32px; padding: var(--space-1, 4px) 0; border: 1px solid transparent; border-radius: var(--radius, 8px); background: transparent; color: var(--accent, #21533e); font: 600 14px/1.25 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; } .ds-text:active:not(:disabled) { background: var(--selected, #dceae1); } .ds-text:hover:not(:disabled) { border-color: transparent; background: transparent; text-decoration: underline; text-underline-offset: 3px; } .ds-text:focus-visible { outline: 2px solid var(--focus, #397e5b); outline-offset: 3px; } .ds-text:disabled { opacity: .48; cursor: default; } @media (pointer: coarse) { .ds-text { min-height: 44px; } }"
+    },
+    {
+      "name": "Header options action",
+      "kind": "button",
+      "refersTo": "button-header",
+      "description": "Original inline options icon with the header's fixed light foreground and focus color.",
+      "html": "<div class=\"ds-header-sample\"><button class=\"ds-header-button\" type=\"button\" aria-label=\"Open options\" title=\"Options\"><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 6h5m4 0h9M3 12h10m4 0h4M3 18h2m4 0h12\"/><circle cx=\"10\" cy=\"6\" r=\"2\"/><circle cx=\"15\" cy=\"12\" r=\"2\"/><circle cx=\"7\" cy=\"18\" r=\"2\"/></svg></button></div>",
+      "css": ".ds-header-sample { background: var(--header, #173f30); padding: var(--space-2, 8px) var(--space-4, 16px); } .ds-header-button { display: inline-flex; align-items: center; justify-content: center; width: 36px; min-height: 36px; padding: var(--space-2, 8px); border: 1px solid transparent; border-radius: var(--radius, 8px); background: transparent; color: #f5fcf7; cursor: pointer; } .ds-icon { width: 18px; height: 18px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; } .ds-header-button:hover:not(:disabled) { background: #ffffff16; border-color: #ffffff42; } .ds-header-button:focus-visible { outline: 2px solid #c5edce; outline-offset: 3px; } .ds-header-button:disabled { opacity: .48; cursor: default; } @media (pointer: coarse) { .ds-header-button { width: 44px; min-height: 44px; } }"
+    },
+    {
+      "name": "Native select",
+      "kind": "input",
+      "refersTo": "select",
+      "description": "Native choice control shared by popup actions and options fields.",
+      "html": "<select class=\"ds-select\" aria-label=\"Sort by\"><option>Site</option><option>Title</option><option>URL</option></select>",
+      "css": ".ds-select { width: 100%; min-height: 36px; padding: var(--space-2, 8px) var(--space-8, 32px) var(--space-2, 8px) var(--space-3, 12px); border: 1px solid var(--line, #cbd8d3); border-radius: var(--radius, 8px); color: var(--ink, #20342e); background: var(--panel, #ffffff); font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; cursor: pointer; } .ds-select:focus-visible { outline: 2px solid var(--focus, #397e5b); outline-offset: 3px; } .ds-select:disabled { opacity: .6; cursor: default; } @media (pointer: coarse) { .ds-select { min-height: 44px; } }"
+    },
+    {
+      "name": "Native multiline field",
+      "kind": "input",
+      "refersTo": "textarea",
+      "description": "Options field for site priorities and lists; vertical resize remains native.",
+      "html": "<textarea class=\"ds-textarea\" rows=\"4\" aria-label=\"Site priority\" placeholder=\"example.com&#10;mail.example.org\" spellcheck=\"false\"></textarea>",
+      "css": ".ds-textarea { width: 100%; min-height: 36px; padding: var(--space-2, 8px) var(--space-3, 12px); border: 1px solid var(--line, #cbd8d3); border-radius: var(--radius, 8px); color: var(--ink, #20342e); background: var(--panel, #ffffff); caret-color: var(--accent, #21533e); font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; resize: vertical; } .ds-textarea::placeholder { color: var(--muted, #526861); opacity: 1; } .ds-textarea:focus-visible { outline: 2px solid var(--focus, #397e5b); outline-offset: 3px; } .ds-textarea:disabled { opacity: .6; cursor: default; }"
+    },
+    {
+      "name": "Scope strip",
+      "kind": "custom",
+      "refersTo": "scope-option-selected",
+      "description": "Two native radios show the selected action scope with a panel fill and separate focus outline.",
+      "html": "<div class=\"ds-scope\" role=\"group\" aria-label=\"Apply tab actions to\"><label class=\"ds-scope-label\"><input class=\"ds-scope-input\" type=\"radio\" name=\"ds-scope\" value=\"current\" checked><span class=\"ds-scope-option\">This window</span></label><label class=\"ds-scope-label\"><input class=\"ds-scope-input\" type=\"radio\" name=\"ds-scope\" value=\"all\"><span class=\"ds-scope-option\">All windows</span></label></div>",
+      "css": ".ds-scope { display: flex; gap: var(--space-1, 4px); padding: var(--space-1, 4px); border-radius: var(--radius, 8px); background: var(--surface-soft, #e8eff0); color: var(--ink, #20342e); font: 550 13px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; } .ds-scope-label { position: relative; flex: 1; } .ds-scope-input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; } .ds-scope-option { display: block; text-align: center; padding: var(--space-2, 8px); border-radius: calc(var(--radius, 8px) - 2px); } .ds-scope-input:checked + .ds-scope-option { color: var(--ink, #20342e); background: var(--panel, #ffffff); } .ds-scope-input:focus-visible { outline: none; } .ds-scope-input:focus-visible + .ds-scope-option { outline: 2px solid var(--focus, #397e5b); outline-offset: 1px; } .ds-scope-input:disabled { cursor: default; } .ds-scope-input:disabled + .ds-scope-option { opacity: .6; }"
+    },
+    {
+      "name": "Duplicate state badges",
+      "kind": "chip",
+      "refersTo": "tab-badge",
+      "description": "Text distinguishes removable, kept, and protected copies; badges are not controls.",
+      "html": "<span class=\"ds-badge ds-badge-close\">Close</span> <span class=\"ds-badge\">Keep</span> <span class=\"ds-badge\">Protected</span>",
+      "css": ".ds-badge { padding: 2px var(--space-1, 4px); border-radius: 4px; background: var(--surface-soft, #e8eff0); color: var(--muted, #526861); font: 400 10px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; white-space: nowrap; margin-top: 2px; } .ds-badge-close { color: var(--accent, #21533e); background: var(--selected, #dceae1); }"
+    },
+    {
+      "name": "Action feedback",
+      "kind": "custom",
+      "refersTo": "feedback",
+      "description": "Stable status region; neutral results, warnings, and errors differ by text and tone.",
+      "html": "<section class=\"ds-feedback\" aria-label=\"Action result\"><div aria-live=\"polite\" aria-atomic=\"true\"><p class=\"ds-status\">Read browser tabs…</p></div></section>",
+      "css": ".ds-feedback { min-height: 48px; padding: var(--space-2, 8px) var(--space-4, 16px); border-top: 1px solid var(--line, #cbd8d3); background: var(--surface-soft, #e8eff0); color: var(--ink, #20342e); font: 400 13px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; } .ds-status { margin: 0; overflow-wrap: anywhere; } .ds-status[data-tone='error'] { color: var(--danger, #9a332d); } .ds-status[data-tone='warning'] { color: var(--warning, #775520); }"
+    }
+  ],
+  "narrative": {
+    "overview": "Tab tidy uses a compact, practical interface with native system typography, forest-green actions, pale surfaces, and aligned counts. Popup and options share controls.",
+    "keyCharacteristics": [
+      "Native controls and direct manual actions.",
+      "Compact rows, restrained borders, and line icons.",
+      "Shared light and dark themes."
+    ],
+    "rules": [],
+    "dos": [
+      "Do retain the native system font, shared tokens, and compact control geometry.",
+      "Do preserve visible counts, text state labels, and keyboard focus.",
+      "Do keep popup and options controls visually consistent across both themes."
+    ],
+    "donts": [
+      "Don't add promotional surfaces or decorative controls.",
+      "Don't copy code or assets from the supplied reference extensions."
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab tidy</title>
+  </head>
+  <body class="popup">
+    <header class="app-header popup-header">
+      <div class="brand">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5V4a1 1 0 0 1 1-1h5l2 3h4a2 2 0 0 1 2 2v9"/><path d="M3 8a2 2 0 0 1 2-2h4l2 3h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="m7 14 2 2 4-4"/></svg>
+        <h1 class="brand-name">Tab tidy</h1>
+      </div>
+      <button class="icon-button" id="options-button" type="button" aria-label="Open options" title="Options">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h5m4 0h9M3 12h10m4 0h4M3 18h2m4 0h12"/><circle cx="10" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+      </button>
+    </header>
+
+    <main id="popup-main" aria-busy="true">
+      <section class="scope-section" aria-label="Tab action scope">
+        <fieldset class="scope-control">
+          <legend class="sr-only">Apply tab actions to</legend>
+          <label><input type="radio" name="scope" value="current" checked disabled /><span>This window</span></label>
+          <label><input type="radio" name="scope" value="all" disabled /><span>All windows</span></label>
+        </fieldset>
+        <div class="scope-summary">
+          <p class="hint count" id="tab-summary">Read browser tabs…</p>
+          <button class="icon-button" id="refresh-button" type="button" aria-label="Refresh tab state" title="Refresh" disabled>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 8a8 8 0 1 0 1 8M19 3v5h-5"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="duplicate-section" aria-label="Close duplicate tabs">
+        <button class="primary duplicate-button" id="close-button" type="button" disabled aria-describedby="duplicate-note recovery-limit">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="13" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3m-9-5 5 5m0-5-5 5"/></svg>
+          <span>Close duplicates</span>
+          <span class="button-count count" id="duplicate-count">0</span>
+        </button>
+        <p class="hint" id="duplicate-note">Checking for duplicates…</p>
+        <details id="duplicate-review" class="duplicate-review">
+          <summary>Review duplicates <span class="summary-count count" id="review-count"></span></summary>
+          <div id="duplicate-list"></div>
+          <p class="hint review-help">Select copies to close. Select a title to open its tab.</p>
+        </details>
+        <p class="hint recovery-limit" id="recovery-limit">Recovery reopens pages. Unsaved content may not return.</p>
+      </section>
+
+      <section class="tab-actions" aria-label="Arrange tabs">
+        <div class="action-row">
+          <label for="sort-by" class="action-label">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12M3 10h9M3 15h6m9-10v15m-3-3 3 3 3-3"/></svg>
+            <span>Sort</span>
+          </label>
+          <select id="sort-by" disabled aria-describedby="sort-note">
+            <option value="site">Site</option>
+            <option value="title">Title</option>
+            <option value="url">URL</option>
+            <option value="custom">Custom site priority</option>
+            <option value="encounter">Site encounter order</option>
+          </select>
+          <button id="sort-button" type="button" disabled>Sort</button>
+        </div>
+        <p class="hint action-note" id="sort-note">Uses your saved direction.</p>
+        <div class="action-row">
+          <label for="group-action" class="action-label">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18m-12 0v11m6-11v11"/></svg>
+            <span>Group</span>
+          </label>
+          <select id="group-action" disabled aria-describedby="group-note">
+            <option value="group">Group by site</option>
+            <option value="ungroup">Ungroup tabs</option>
+            <option value="collapse">Collapse groups</option>
+            <option value="expand">Expand groups</option>
+          </select>
+          <button id="group-button" type="button" disabled>Group</button>
+        </div>
+        <p class="hint action-note" id="group-note">Keeps existing groups by default.</p>
+      </section>
+
+      <section class="merge-section" aria-label="Merge windows">
+        <button class="merge-button" id="merge-button" type="button" disabled aria-describedby="merge-note">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="6" rx="1"/><rect x="14" y="3" width="7" height="6" rx="1"/><path d="M6 9v4l6 4 6-4V9m-9 8 3 3 3-3"/></svg>
+          <span>Merge into this window</span>
+          <span class="count merge-count" id="merge-count">0</span>
+        </button>
+        <p class="hint" id="merge-note">0 eligible windows → this window</p>
+        <details id="merge-review">
+          <summary>Choose source windows</summary>
+          <div id="merge-list"></div>
+        </details>
+      </section>
+
+      <section class="feedback" aria-label="Action result">
+        <div aria-live="polite" aria-atomic="true">
+          <p class="status" id="status">Read browser tabs…</p>
+          <ul class="warnings" id="warnings" hidden></ul>
+        </div>
+        <button class="text-button" id="undo-button" type="button" hidden disabled>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 4 9l5 5M4 9h10a6 6 0 0 1 0 12"/></svg>
+          <span id="undo-label">Undo last action</span>
+        </button>
+        <button class="text-button" id="retry-button" type="button" hidden>Refresh tabs</button>
+      </section>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
