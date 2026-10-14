@@ -83,6 +83,8 @@ Popup images show the extension page at popup dimensions, not the native toolbar
 
 [`header.svg`](assets/header.svg) and [`workflow.svg`](assets/workflow.svg) are original documentation illustrations, not screenshots.
 They use the project's palette, system fonts, and tab/check motif without external assets.
+Each SVG has a twelve-second CSS animation with separate cursor clicks, visible tab changes, and a final hold.
+The reduced-motion and nonanimated states show the completed example without cursor motion.
 
 ## Project map
 

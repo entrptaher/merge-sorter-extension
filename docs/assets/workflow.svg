@@ -1,31 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 132" role="img" aria-labelledby="title description">
-  <title id="title">Three manual steps</title>
-  <desc id="description">Choose scope, choose an action after you review counts and selections, then review the result and warnings.</desc>
-  <rect width="960" height="132" rx="12" fill="#f0f4f5"/>
-  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">
-    <g fill="#21533e">
-      <circle cx="45" cy="49" r="17"/>
-      <circle cx="365" cy="49" r="17"/>
-      <circle cx="685" cy="49" r="17"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="312" viewBox="0 0 1200 312" role="img" aria-labelledby="title description">
+  <title id="title">Choose scope, review an action, review the result</title>
+  <desc id="description">Three linked illustrated scenes repeat over twelve seconds. A cursor selects All windows. A second cursor clicks Close 1 duplicate after a review identifies a Guide tab to keep and a matching copy to close. The copy disappears from the browser, and feedback confirms one closure. Reduced motion shows the selected scope, reviewed choice, and completed result.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; fill: #20342e; }
+    .heading { font-size: 26px; font-weight: 650; }
+    .label { font-size: 17px; font-weight: 550; }
+    .detail { font-size: 14px; fill: #526861; }
+    .caption { font-size: 17px; fill: #526861; }
+    .motion { animation-duration: 12s; animation-iteration-count: infinite; animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+    .scene { animation-name: scene-cycle; }
+    .scope-selection { transform: translateX(164px); animation-name: scope-select; }
+    .all-window-outline { animation-name: scope-window; }
+    .scope-cursor { opacity: 0; animation-name: scope-cursor; animation-timing-function: ease-in-out; }
+    .action-cursor { opacity: 0; animation-name: action-cursor; animation-timing-function: ease-in-out; }
+    .scope-press { opacity: 0; animation-name: scope-press; }
+    .action-press { opacity: 0; animation-name: action-press; }
+    .duplicate-copy { opacity: 0; animation-name: duplicate-close; }
+    .result-tab { transform: translateX(-100px); animation-name: result-tab; }
+    .result-feedback { animation-name: result-feedback; }
+    .result-check { stroke-dasharray: 27; stroke-dashoffset: 0; animation-name: result-check; }
+    .mobile-label { display: none; }
+    @keyframes scene-cycle { 0%, 100% { opacity: 0; } 3%, 94% { opacity: 1; } 98% { opacity: 0; } }
+    @keyframes scope-select { 0%, 16% { transform: translateX(0); } 20%, 100% { transform: translateX(164px); } }
+    @keyframes scope-window { 0%, 17% { opacity: 0; } 21%, 100% { opacity: 1; } }
+    @keyframes scope-cursor { 0%, 5% { opacity: 0; transform: translate(179px, 175px); } 8% { opacity: 1; transform: translate(179px, 175px); } 14%, 21% { opacity: 1; transform: translate(294px, 126px); } 25%, 100% { opacity: 0; transform: translate(312px, 145px); } }
+    @keyframes scope-press { 0%, 15%, 19%, 100% { opacity: 0; } 16%, 17% { opacity: .22; } }
+    @keyframes action-cursor { 0%, 27% { opacity: 0; transform: translate(731px, 187px); } 30% { opacity: 1; transform: translate(731px, 187px); } 37%, 43% { opacity: 1; transform: translate(639px, 235px); } 47%, 100% { opacity: 0; transform: translate(660px, 260px); } }
+    @keyframes action-press { 0%, 38%, 42%, 100% { opacity: 0; } 39%, 40% { opacity: .25; } }
+    @keyframes duplicate-close { 0%, 40% { opacity: 1; transform: translateY(0); } 44%, 100% { opacity: 0; transform: translateY(12px); } }
+    @keyframes result-tab { 0%, 42% { transform: translateX(0); } 47%, 100% { transform: translateX(-100px); } }
+    @keyframes result-feedback { 0%, 44% { opacity: 0; } 49%, 100% { opacity: 1; } }
+    @keyframes result-check { 0%, 46% { stroke-dashoffset: 27; } 51%, 100% { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .motion { animation: none; } }
+    @media (max-width: 600px) {
+      .heading { font-size: 38px; }
+      .caption, .detail, .desktop-label { display: none; }
+      .mobile-label { display: block; font-size: 39px; font-weight: 550; }
+      .review-title { font-size: 30px; }
+      .result-copy { font-size: 33px; }
+    }
+  </style>
+  <defs>
+    <g id="pointer"><path d="m0 0 2 23 6-6 5 10 5-3-5-10 9-1Z" fill="#ffffff" stroke="#20342e" stroke-width="1.8" stroke-linejoin="round"/></g>
+    <g id="small-window">
+      <rect width="140" height="77" rx="7" fill="#ffffff" stroke="#cbd8d3"/>
+      <path d="M0 24h140" stroke="#cbd8d3"/>
+      <rect x="9" y="8" width="34" height="9" rx="3" fill="#dceae1"/><rect x="48" y="8" width="34" height="9" rx="3" fill="#e8eff0"/>
+      <path d="M14 42h76m-76 12h107" stroke="#e8eff0" stroke-width="5" stroke-linecap="round"/>
     </g>
-    <g fill="#f0f4f5" font-size="17" font-weight="600" text-anchor="middle">
-      <text x="45" y="55">1</text>
-      <text x="365" y="55">2</text>
-      <text x="685" y="55">3</text>
+    <clipPath id="result-contents"><rect x="834" y="116" width="332" height="86" rx="4"/></clipPath>
+  </defs>
+  <rect width="1200" height="312" rx="12" fill="#f0f4f5"/>
+  <path d="M400 28v256M800 28v256" stroke="#cbd8d3"/>
+  <g fill="#21533e"><circle cx="40" cy="44" r="16"/><circle cx="440" cy="44" r="16"/><circle cx="840" cy="44" r="16"/></g>
+  <g text-anchor="middle" font-size="17" font-weight="600"><text x="40" y="50" style="fill:#f5fcf7">1</text><text x="440" y="50" style="fill:#f5fcf7">2</text><text x="840" y="50" style="fill:#f5fcf7">3</text></g>
+  <text x="66" y="53" class="heading">Choose scope</text><text x="466" y="53" class="heading">Review action</text><text x="866" y="53" class="heading">Review result</text>
+  <g class="scene motion" id="workflow-demonstration">
+    <g id="choose-scope-scene">
+      <rect x="32" y="86" width="336" height="60" rx="8" fill="#e8eff0" stroke="#cbd8d3"/>
+      <rect class="scope-selection motion" x="37" y="91" width="162" height="50" rx="6" fill="#ffffff" stroke="#397e5b"/>
+      <rect class="scope-press motion" x="201" y="91" width="162" height="50" rx="6" fill="#397e5b"/>
+      <g text-anchor="middle"><text x="118" y="122" class="label desktop-label">This window</text><text x="282" y="122" class="label desktop-label">All windows</text><text x="118" y="129" class="mobile-label">This</text><text x="282" y="129" class="mobile-label">All</text></g>
+      <use href="#small-window" x="42" y="171"/><use href="#small-window" x="218" y="171"/>
+      <rect x="42" y="171" width="140" height="77" rx="7" fill="none" stroke="#397e5b" stroke-width="2"/>
+      <g class="all-window-outline motion"><rect x="218" y="171" width="140" height="77" rx="7" fill="none" stroke="#397e5b" stroke-width="2"/><path d="M189 210h22m-5-5 5 5-5 5" fill="none" stroke="#397e5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+      <g class="scope-cursor motion" id="scope-cursor"><use href="#pointer"/></g>
     </g>
-    <g fill="#173f30" font-size="22" font-weight="650">
-      <text x="75" y="56">Choose scope</text>
-      <text x="395" y="56">Choose action</text>
-      <text x="715" y="56">Review result</text>
+    <g id="review-duplicate-scene">
+      <rect x="432" y="86" width="336" height="118" rx="8" fill="#ffffff" stroke="#cbd8d3"/>
+      <path d="M448 145h304" stroke="#e8eff0"/>
+      <rect x="447" y="103" width="14" height="14" rx="3" fill="#397e5b"/>
+      <text x="473" y="117" class="label review-title">Guide</text><text x="473" y="135" class="detail">docs.test/guide</text>
+      <text x="733" y="119" class="label" text-anchor="end" style="fill:#526861">Keep</text>
+      <g id="review-choice">
+        <rect x="447" y="162" width="16" height="16" rx="3" fill="#21533e"/>
+        <path d="m451 170 3 3 5-6" fill="none" stroke="#f5fcf7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="473" y="176" class="label review-title">Guide</text><text x="473" y="194" class="detail">docs.test/guide</text>
+        <rect x="680" y="157" width="69" height="28" rx="5" fill="#dceae1"/><text x="714" y="177" class="label" text-anchor="middle" style="fill:#21533e">Close</text>
+      </g>
+      <rect x="432" y="216" width="336" height="40" rx="7" fill="#21533e"/>
+      <rect class="action-press motion" x="432" y="216" width="336" height="40" rx="7" fill="#d0e2d7"/>
+      <text x="600" y="242" text-anchor="middle" class="label desktop-label" style="fill:#f5fcf7">Close 1 duplicate</text><text x="600" y="250" text-anchor="middle" class="mobile-label" style="fill:#f5fcf7">Close 1</text>
+      <g class="action-cursor motion" id="close-duplicate-cursor"><use href="#pointer"/></g>
     </g>
-    <g fill="#526861" font-size="16">
-      <text x="28" y="96">This window or all windows</text>
-      <text x="348" y="96">Review counts, then act</text>
-      <text x="668" y="96">Read feedback and warnings</text>
+    <g id="review-result-scene">
+      <rect x="832" y="86" width="336" height="118" rx="8" fill="#ffffff" stroke="#cbd8d3"/>
+      <path d="M832 114h336" stroke="#cbd8d3"/>
+      <g fill="#a5b9af"><circle cx="847" cy="100" r="3"/><circle cx="860" cy="100" r="3"/><circle cx="873" cy="100" r="3"/></g>
+      <g clip-path="url(#result-contents)">
+        <g transform="translate(846 126)"><rect width="94" height="33" rx="5" fill="#dceae1"/><rect x="10" y="12" width="9" height="9" rx="2" fill="#397e5b"/><text x="27" y="23" class="label desktop-label">Guide</text></g>
+        <g class="duplicate-copy motion" id="result-duplicate"><g transform="translate(946 126)"><rect width="94" height="33" rx="5" fill="#dceae1"/><rect x="10" y="12" width="9" height="9" rx="2" fill="#397e5b"/><text x="27" y="23" class="label desktop-label">Guide</text><path d="m79 7 7 7m0-7-7 7" stroke="#9a332d" stroke-width="1.5"/></g></g>
+        <g class="result-tab motion" id="result-notes"><g transform="translate(1046 126)"><rect width="94" height="33" rx="5" fill="#f1e7d2"/><circle cx="15" cy="16" r="5" fill="#967332"/><text x="27" y="23" class="label desktop-label">Notes</text></g></g>
+        <path d="M849 178h164m-164 12h239" stroke="#e8eff0" stroke-width="5" stroke-linecap="round"/>
+      </g>
+      <g class="result-feedback motion" id="closure-feedback">
+        <circle cx="850" cy="236" r="16" fill="#dceae1"/>
+        <path class="result-check motion" d="m842 236 6 6 11-12" fill="none" stroke="#21533e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="877" y="243" class="label result-copy">Closed 1 duplicate.</text>
+      </g>
     </g>
   </g>
-  <g fill="none" stroke="#526861" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M286 51h22m-6-6 6 6-6 6"/>
-    <path d="M606 51h22m-6-6 6 6-6 6"/>
-  </g>
+  <g class="caption"><text x="32" y="287">This window or all windows</text><text x="432" y="287">Keep the original. Choose the copy.</text><text x="832" y="287">Read feedback and warnings.</text></g>
 </svg>

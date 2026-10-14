@@ -1,15 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="title description">
-  <title id="title">Tab tidy</title>
-  <desc id="description">One popup for your tabs and windows. An original tab and check illustration on a forest-green banner.</desc>
-  <rect width="960" height="220" rx="16" fill="#173f30"/>
-  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">
-    <text x="45" y="115" fill="#f0f4f5" font-size="52" font-weight="650">Tab tidy</text>
-    <text x="48" y="157" fill="#d0e2d7" font-size="22">One popup for your tabs and windows.</text>
-  </g>
-  <rect x="748" y="38" width="144" height="144" rx="24" fill="#21533e"/>
-  <g transform="translate(772 62) scale(4)" fill="none" stroke="#f0f4f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">Tab tidy — manual tools for tabs and windows</title>
+  <desc id="description">A twelve-second illustrated demonstration. Four separate cursor clicks close a duplicate Guide tab, group Guide and API under docs.test and Notes and Ideas under work.test, sort each group by title, then merge Mail and Tasks from a source window. Reduced motion shows the completed arrangement.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; }
+    .ink { fill: #20342e; }
+    .muted { fill: #526861; }
+    .small { font-size: 14px; }
+    .tab-label { font-size: 15px; font-weight: 550; fill: #20342e; }
+    .command-label { font-size: 15px; font-weight: 600; fill: #f5fcf7; }
+    .motion { animation-duration: 12s; animation-iteration-count: infinite; animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+    .demonstration { animation-name: scene-cycle; }
+    .tab-guide { transform: translate(104px, 0); animation-name: guide-position; }
+    .tab-notes { transform: translate(220px, 0); animation-name: notes-position; }
+    .tab-api { transform: translate(-312px, 0); animation-name: api-position; }
+    .tab-ideas { transform: translate(-196px, 0); animation-name: ideas-position; }
+    .tab-duplicate { opacity: 0; animation-name: duplicate-close; }
+    .site-groups { animation-name: group-reveal; }
+    .source-window { opacity: 0; animation-name: source-close; }
+    .tab-mail { transform: translate(-8px, -126px); animation-name: mail-transfer; }
+    .tab-tasks { transform: translate(-10px, -126px); animation-name: tasks-transfer; }
+    .transfer-path { opacity: 0; stroke-dasharray: 164; stroke-dashoffset: 164; animation-name: transfer-path; }
+    .cursor { opacity: 0; animation-name: cursor-route; animation-timing-function: ease-in-out; }
+    .press { opacity: 0; fill: #d0e2d7; }
+    .press-close { animation-name: press-close; }
+    .press-group { animation-name: press-group; }
+    .press-sort { animation-name: press-sort; }
+    .press-merge { animation-name: press-merge; }
+    .compact-copy, .mobile-commands { display: none; }
+    @keyframes scene-cycle { 0%, 100% { opacity: 0; } 3%, 94% { opacity: 1; } 98% { opacity: 0; } }
+    @keyframes duplicate-close { 0%, 14% { opacity: 1; transform: translateY(0); } 18%, 100% { opacity: 0; transform: translateY(12px); } }
+    @keyframes guide-position { 0%, 52% { transform: translate(0, 0); } 55% { transform: translate(52px, -12px); } 58%, 100% { transform: translate(104px, 0); } }
+    @keyframes notes-position { 0%, 31% { transform: translate(0, 0); } 37%, 52% { transform: translate(116px, 0); } 55% { transform: translate(168px, -12px); } 58%, 100% { transform: translate(220px, 0); } }
+    @keyframes api-position { 0%, 15% { transform: translate(0, 0); } 20%, 31% { transform: translate(-104px, 0); } 37%, 52% { transform: translate(-208px, 0); } 55% { transform: translate(-260px, 12px); } 58%, 100% { transform: translate(-312px, 0); } }
+    @keyframes ideas-position { 0%, 15% { transform: translate(0, 0); } 20%, 31% { transform: translate(-104px, 0); } 37%, 52% { transform: translate(-92px, 0); } 55% { transform: translate(-144px, 12px); } 58%, 100% { transform: translate(-196px, 0); } }
+    @keyframes group-reveal { 0%, 32% { opacity: 0; } 37%, 100% { opacity: 1; } }
+    @keyframes source-close { 0%, 78% { opacity: 1; } 83%, 100% { opacity: 0; } }
+    @keyframes mail-transfer { 0%, 73% { transform: translate(0, 0); } 80%, 100% { transform: translate(-8px, -126px); } }
+    @keyframes tasks-transfer { 0%, 74% { transform: translate(0, 0); } 81%, 100% { transform: translate(-10px, -126px); } }
+    @keyframes transfer-path { 0%, 72% { opacity: 0; stroke-dashoffset: 164; } 74% { opacity: 1; stroke-dashoffset: 164; } 79% { opacity: 1; stroke-dashoffset: 0; } 84%, 100% { opacity: 0; stroke-dashoffset: 0; } }
+    @keyframes cursor-route {
+      0%, 7% { opacity: 0; transform: translate(595px, 335px); }
+      9% { opacity: 1; transform: translate(595px, 335px); }
+      12%, 17% { opacity: 1; transform: translate(565px, 307px); }
+      28%, 34% { opacity: 1; transform: translate(735px, 307px); }
+      49%, 55% { opacity: 1; transform: translate(905px, 307px); }
+      70%, 77% { opacity: 1; transform: translate(1075px, 307px); }
+      82%, 100% { opacity: 0; transform: translate(1095px, 335px); }
+    }
+    @keyframes press-close { 0%, 12%, 16%, 100% { opacity: 0; } 13%, 14% { opacity: .3; } }
+    @keyframes press-group { 0%, 29%, 33%, 100% { opacity: 0; } 30%, 31% { opacity: .3; } }
+    @keyframes press-sort { 0%, 50%, 54%, 100% { opacity: 0; } 51%, 52% { opacity: .3; } }
+    @keyframes press-merge { 0%, 71%, 75%, 100% { opacity: 0; } 72%, 73% { opacity: .3; } }
+    @media (prefers-reduced-motion: reduce) { .motion { animation: none; } }
+    @media (max-width: 600px) {
+      .wordmark { font-size: 86px; }
+      .full-copy, .fine-detail, .desktop-commands { display: none; }
+      .compact-copy { display: block; font-size: 42px; }
+      .mobile-commands { display: block; font-size: 32px; }
+      .tab-label { font-size: 18px; }
+    }
+  </style>
+  <defs>
+    <clipPath id="browser-contents"><rect x="482" y="75" width="674" height="115" rx="4"/></clipPath>
+    <g id="tab-shell"><rect width="92" height="36" rx="6" fill="#ffffff" stroke="#cbd8d3"/></g>
+    <g id="pointer"><path d="m0 0 2 23 6-6 5 10 5-3-5-10 9-1Z" fill="#ffffff" stroke="#20342e" stroke-width="1.8" stroke-linejoin="round"/></g>
+  </defs>
+  <rect width="1200" height="360" rx="16" fill="#173f30"/>
+  <g fill="none" stroke="#d0e2d7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(44 49) scale(2)">
     <path d="M6 5V4a1 1 0 0 1 1-1h5l2 3h4a2 2 0 0 1 2 2v9"/>
     <path d="M3 8a2 2 0 0 1 2-2h4l2 3h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>
     <path d="m7 14 2 2 4-4"/>
+  </g>
+  <text class="wordmark" x="44" y="164" fill="#f5fcf7" font-size="62" font-weight="650" letter-spacing="-2">Tab tidy</text>
+  <g class="full-copy" fill="#d0e2d7" font-size="23">
+    <text x="47" y="208">One popup for your tabs</text>
+    <text x="47" y="239">and windows.</text>
+    <text x="47" y="307" font-size="17">Every action starts with you.</text>
+  </g>
+  <g class="compact-copy" fill="#d0e2d7"><text x="48" y="231">Manual tools.</text><text x="48" y="284">Tabs. Windows.</text></g>
+  <g class="demonstration motion" id="tab-demonstration">
+    <rect x="478" y="40" width="682" height="156" rx="10" fill="#f0f4f5" stroke="#cbd8d3"/>
+    <path d="M478 76h682" stroke="#cbd8d3"/>
+    <text x="496" y="64" class="small muted fine-detail">Current window</text>
+    <g fill="#a5b9af"><circle cx="1112" cy="58" r="3"/><circle cx="1126" cy="58" r="3"/><circle cx="1140" cy="58" r="3"/></g>
+    <g clip-path="url(#browser-contents)">
+      <g class="site-groups motion" id="site-groups">
+        <rect x="490" y="97" width="204" height="47" rx="8" fill="#dceae1"/>
+        <rect x="710" y="97" width="208" height="47" rx="8" fill="#f1e7d2"/>
+        <path d="M496 144h192" stroke="#397e5b" stroke-width="3" stroke-linecap="round"/>
+        <path d="M716 144h196" stroke="#967332" stroke-width="3" stroke-linecap="round"/>
+        <text x="498" y="91" font-size="12" font-weight="600" fill="#21533e">docs.test</text>
+        <text x="718" y="91" font-size="12" font-weight="600" fill="#775520">work.test</text>
+      </g>
+      <g class="tab-guide motion" id="tab-guide"><g transform="translate(496 102)"><use href="#tab-shell"/><rect x="10" y="13" width="10" height="10" rx="2" fill="#397e5b"/><text x="27" y="24" class="tab-label">Guide</text></g></g>
+      <g class="tab-notes motion" id="tab-notes"><g transform="translate(600 102)"><use href="#tab-shell"/><circle cx="15" cy="18" r="5" fill="#967332"/><text x="27" y="24" class="tab-label">Notes</text></g></g>
+      <g class="tab-duplicate motion" id="tab-guide-copy"><g transform="translate(704 102)"><use href="#tab-shell"/><rect x="10" y="13" width="10" height="10" rx="2" fill="#397e5b"/><text x="27" y="24" class="tab-label">Guide</text><path d="m76 8 6 6m0-6-6 6" stroke="#9a332d" stroke-width="1.5" stroke-linecap="round"/></g></g>
+      <g class="tab-api motion" id="tab-api"><g transform="translate(808 102)"><use href="#tab-shell"/><rect x="10" y="13" width="10" height="10" rx="2" fill="#397e5b"/><text x="27" y="24" class="tab-label">API</text></g></g>
+      <g class="tab-ideas motion" id="tab-ideas"><g transform="translate(912 102)"><use href="#tab-shell"/><circle cx="15" cy="18" r="5" fill="#967332"/><text x="27" y="24" class="tab-label">Ideas</text></g></g>
+      <g class="fine-detail"><rect x="496" y="157" width="646" height="22" rx="5" fill="#ffffff"/><path d="M508 168h8m-4-4-4 4 4 4" stroke="#526861" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="532" y="164" width="174" height="6" rx="3" fill="#e8eff0"/></g>
+    </g>
+    <g class="source-window motion" id="source-window">
+      <rect x="920" y="201" width="224" height="67" rx="8" fill="#e8eff0" stroke="#a5b9af"/>
+      <text x="932" y="218" class="muted fine-detail" font-size="12">Source window</text>
+      <path d="M1118 211h12" stroke="#526861" stroke-width="1.5"/>
+    </g>
+    <path class="transfer-path motion" d="M1008 245h-28v-65h-20v-34" fill="none" stroke="#a1d3b2" stroke-width="2" stroke-linecap="round"/>
+    <g class="tab-mail motion" id="tab-mail"><g transform="translate(932 228)"><use href="#tab-shell"/><path d="M10 14h12v9H10Zm0 0 6 5 6-5" fill="none" stroke="#526861" stroke-width="1.3" stroke-linejoin="round"/><text x="28" y="24" class="tab-label">Mail</text></g></g>
+    <g class="tab-tasks motion" id="tab-tasks"><g transform="translate(1034 228)"><use href="#tab-shell"/><path d="m10 18 3 3 7-7" fill="none" stroke="#526861" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><text x="28" y="24" class="tab-label">Tasks</text></g></g>
+    <g stroke="#6e9480" fill="#21533e">
+      <rect x="478" y="285" width="160" height="40" rx="7"/><rect x="648" y="285" width="160" height="40" rx="7"/>
+      <rect x="818" y="285" width="160" height="40" rx="7"/><rect x="988" y="285" width="172" height="40" rx="7"/>
+    </g>
+    <g>
+      <rect class="press press-close motion" x="478" y="285" width="160" height="40" rx="7"/>
+      <rect class="press press-group motion" x="648" y="285" width="160" height="40" rx="7"/>
+      <rect class="press press-sort motion" x="818" y="285" width="160" height="40" rx="7"/>
+      <rect class="press press-merge motion" x="988" y="285" width="172" height="40" rx="7"/>
+    </g>
+    <g class="command-label desktop-commands" text-anchor="middle"><text x="558" y="310">Close duplicate</text><text x="728" y="310">Group by site</text><text x="898" y="310">Sort by title</text><text x="1074" y="310">Merge windows</text></g>
+    <g class="command-label mobile-commands" text-anchor="middle"><text x="558" y="316">Close</text><text x="728" y="316">Group</text><text x="898" y="316">Sort</text><text x="1074" y="316">Merge</text></g>
+    <g class="cursor motion" id="manual-action-cursor"><use href="#pointer"/></g>
   </g>
 </svg>

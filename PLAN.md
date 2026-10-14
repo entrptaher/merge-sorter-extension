@@ -24,6 +24,7 @@ Replicate useful behavior, not the source code, visual clutter, or promotional f
 | Create a private GitHub repository and push all completed work; keep the response short | Repository publication | Private repository with source, documentation, design assets, and tests | Confirm private visibility and matching local/remote commit |
 | Add good README screenshots and a presentation like `https://github.com/vanila-io/wireflow` | Repository documentation | Branded overview, fresh screenshots, clear feature/navigation sections, and linked detailed docs | Real Playwright captures, local asset/link checks, and published README |
 | Reject the “Preview — six known defects remain open” README banner | README presentation | Remove internal audit banners and defect-count summaries from the product overview | Inspect README and publish the correction |
+| Wireflow has animated SVGs; the static replacement is inadequate | README header and workflow illustrations | Original animated SVG scenes that demonstrate actual tab actions, with comparable visual craft | Playwright checks at distinct animation phases, image-embedding checks, reduced-motion checks, and published assets |
 
 Archive paths:
 - `/Users/developer/Downloads/cgfpgnepljlgenjclbekbjdlgcodfmjp.zip` (Simple Tab Sorter).
@@ -306,3 +307,24 @@ Presentation validation completed: five fresh Playwright screenshots, two origin
 The screenshots use sample tabs in an isolated profile. Duplicate and merge views use truthful detail crops.
 Both SVGs passed XML validation and visual inspection in Chromium. All 67 local references resolved.
 GitHub's Markdown renderer retained all seven images and the expandable sections. All six known defects remain documented.
+
+### Animated illustration correction
+
+The exact Wireflow SVG sources were inspected. Their value is staged product behavior: elements move, connectors draw, and a cursor explains cause and result.
+The previous static banner and numbered strip did not carry that behavior.
+
+Motion scope: `docs/assets/header.svg`, `docs/assets/workflow.svg`, and their descriptive README/development text only.
+- Focal moment: sample browser tabs visibly close as duplicates, form groups, change order, and move between windows after distinct manual-action cues.
+- Continuity: tab identity and group colors remain readable through each transition.
+- Feedback: a cursor/press cue precedes state changes; the illustrations must not imply an automatic all-in-one cleanup.
+- Budget: self-contained SVG/CSS, no scripts, external assets, foreignObject, dependency, or expensive continuous filters.
+- Accessibility: readable static fallback and an intentional reduced-motion state.
+- Validation: inspect distinct phase captures at README width; verify actual frame changes when embedded as an image; verify reduced-motion stability.
+- Delivery: retain the existing branding and publish the finished illustrations to the private repository.
+
+Completed: both SVGs now contain original twelve-second demonstrations with visible manual clicks and tab transformations.
+The header closes a duplicate, forms site groups, sorts their tabs, then merges the source window.
+The workflow demonstrates scope selection, duplicate review/closure, and result feedback.
+Independent Playwright validation found five distinct header phases and three distinct workflow phases.
+Both SVGs visibly animate as image embeds. Browser-wide reduced-motion preference produces stable, readable final states.
+XML validation and visual checks at 960px and 390px passed. The narrow workflow capture used a fresh context to avoid a resize capture artifact.

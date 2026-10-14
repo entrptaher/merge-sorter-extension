@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/header.svg" alt="Tab tidy — One popup for your tabs and windows." width="960" />
+  <img src="docs/assets/header.svg" alt="Tab tidy — animated manual actions close a duplicate, group and sort tabs, then merge windows." width="960" />
 </p>
 
 <p align="center">
@@ -54,7 +54,7 @@ Browser events refresh the preview; they do not run actions.
 
 ## How it works
 
-<img src="docs/assets/workflow.svg" alt="1. Choose scope. 2. Choose action. 3. Review result." width="960" />
+<img src="docs/assets/workflow.svg" alt="Animated workflow: select All windows, review a duplicate copy, click Close 1 duplicate, and read the result." width="960" />
 
 1. Select **This window** or **All windows**.
 2. Review the counts and selections, then select an action.
