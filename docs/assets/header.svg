@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-labelledby="title description">
+  <title id="title">Tab tidy</title>
+  <desc id="description">One popup for your tabs and windows. An original tab and check illustration on a forest-green banner.</desc>
+  <rect width="960" height="220" rx="16" fill="#173f30"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">
+    <text x="45" y="115" fill="#f0f4f5" font-size="52" font-weight="650">Tab tidy</text>
+    <text x="48" y="157" fill="#d0e2d7" font-size="22">One popup for your tabs and windows.</text>
+  </g>
+  <rect x="748" y="38" width="144" height="144" rx="24" fill="#21533e"/>
+  <g transform="translate(772 62) scale(4)" fill="none" stroke="#f0f4f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 5V4a1 1 0 0 1 1-1h5l2 3h4a2 2 0 0 1 2 2v9"/>
+    <path d="M3 8a2 2 0 0 1 2-2h4l2 3h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>
+    <path d="m7 14 2 2 4-4"/>
+  </g>
+</svg>

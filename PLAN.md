@@ -22,6 +22,7 @@ Replicate useful behavior, not the source code, visual clutter, or promotional f
 | Canceled the original core agent; requested a replacement and fast completion | Interrupted implementation | Preserve existing files, finish concrete gaps, build and verify promptly | Replacement agent, focused checks, production ZIP |
 | Review the full implementation with fresh eyes, prepare a README, and assess whether everything is correct | System-wide review | Evidence-based mental model, assumptions, three approaches, tradeoffs, level-1 quality review, failure points, execution steps, and short summary | Source trace, official API documentation, targeted browser probes, README review |
 | Create a private GitHub repository and push all completed work; keep the response short | Repository publication | Private repository with source, documentation, design assets, and tests | Confirm private visibility and matching local/remote commit |
+| Add good README screenshots and a presentation like `https://github.com/vanila-io/wireflow` | Repository documentation | Branded overview, fresh screenshots, clear feature/navigation sections, and linked detailed docs | Real Playwright captures, local asset/link checks, and published README |
 
 Archive paths:
 - `/Users/developer/Downloads/cgfpgnepljlgenjclbekbjdlgcodfmjp.zip` (Simple Tab Sorter).
@@ -279,3 +280,28 @@ ZIP integrity passed. No production behavior was changed during this review. `RE
 Recommended subsequent implementation order: recovery ownership and prior-record retention; placement verification;
 source/destination metadata; bounded popup refresh; reset access after invalid settings; focused regressions and release checks.
 Each correction must first pass its concrete reproducer, then the connected action/undo scenarios.
+
+## README presentation follow-up
+
+The Wireflow reference uses a branded banner, prominent product screenshots, feature sections, a workflow graphic, and clear setup/developer sections.
+Adapt those presentation patterns to Tab tidy without copying assets or implying that known defects are fixed.
+
+1. Capture the current built extension with sample tabs through isolated Playwright Chromium.
+   - Expected: real light/dark popup, duplicate review, source-window selection, and options images.
+   - Validation: inspect the generated images and record their actual dimensions and fixture context.
+2. Refine README into a short visual overview, with original header/workflow SVGs.
+   - Expected: clear features, quick start, screenshots, and a visible preview-status link.
+   - Validation: check GitHub-compatible markup, local links, image paths, and factual claims.
+3. Move detailed behavior, developer notes, and all six open defects into linked documentation.
+   - Expected: useful detail remains accessible without overwhelming the README.
+   - Validation: reconcile the moved content against the current README and audited code.
+4. Publish the documentation changes to the existing private repository.
+   - Expected: source and documentation share the same GitHub entry point.
+   - Validation: verify the pushed commit and private repository visibility.
+
+Write scope: README.md, docs/, scripts/capture-readme.mjs, and this plan. Production extension behavior remains outside this follow-up.
+
+Presentation validation completed: five fresh Playwright screenshots, two original SVG illustrations, and three linked detail pages.
+The screenshots use sample tabs in an isolated profile. Duplicate and merge views use truthful detail crops.
+Both SVGs passed XML validation and visual inspection in Chromium. All 67 local references resolved.
+GitHub's Markdown renderer retained all seven images and the expandable sections. All six known defects remain documented.
