@@ -11,9 +11,6 @@
 
 <p align="center"><strong><a href="https://wxt.dev/">WXT</a> · TypeScript · Chromium MV3 · Manual actions</strong></p>
 
-> **Preview — six known defects remain open.** They affect recovery, split-group merge, popup refresh, and options reset.
-> See [known issues and evidence](docs/known-issues.md). The test suite includes active failure regressions.
-
 ## Screenshots
 
 <table>
@@ -118,7 +115,7 @@ The extension opens no welcome, installation, update, or uninstall pages.
 | --- | --- |
 | [User guide](docs/guide.md) | Action rules, defaults, exclusions, shortcuts, and recovery limits. |
 | [Development](docs/development.md) | Commands, project map, validation limits, and screenshot capture. |
-| [Known issues](docs/known-issues.md) | All six open defects, reproduction evidence, and the focus observation. |
+| [Known issues](docs/known-issues.md) | Current limitations and reproducible bug reports. |
 | [Product](PRODUCT.md) · [Design](DESIGN.md) | Product constraints and the shared visual system. |
 
 [Report an issue](https://github.com/entrptaher/merge-sorter-extension/issues/new) · [Review current limitations](docs/known-issues.md)

@@ -23,6 +23,7 @@ Replicate useful behavior, not the source code, visual clutter, or promotional f
 | Review the full implementation with fresh eyes, prepare a README, and assess whether everything is correct | System-wide review | Evidence-based mental model, assumptions, three approaches, tradeoffs, level-1 quality review, failure points, execution steps, and short summary | Source trace, official API documentation, targeted browser probes, README review |
 | Create a private GitHub repository and push all completed work; keep the response short | Repository publication | Private repository with source, documentation, design assets, and tests | Confirm private visibility and matching local/remote commit |
 | Add good README screenshots and a presentation like `https://github.com/vanila-io/wireflow` | Repository documentation | Branded overview, fresh screenshots, clear feature/navigation sections, and linked detailed docs | Real Playwright captures, local asset/link checks, and published README |
+| Reject the “Preview — six known defects remain open” README banner | README presentation | Remove internal audit banners and defect-count summaries from the product overview | Inspect README and publish the correction |
 
 Archive paths:
 - `/Users/developer/Downloads/cgfpgnepljlgenjclbekbjdlgcodfmjp.zip` (Simple Tab Sorter).
@@ -290,7 +291,7 @@ Adapt those presentation patterns to Tab tidy without copying assets or implying
    - Expected: real light/dark popup, duplicate review, source-window selection, and options images.
    - Validation: inspect the generated images and record their actual dimensions and fixture context.
 2. Refine README into a short visual overview, with original header/workflow SVGs.
-   - Expected: clear features, quick start, screenshots, and a visible preview-status link.
+   - Expected: clear features, quick start, screenshots, and ordinary documentation links. The user rejected a leading internal audit banner.
    - Validation: check GitHub-compatible markup, local links, image paths, and factual claims.
 3. Move detailed behavior, developer notes, and all six open defects into linked documentation.
    - Expected: useful detail remains accessible without overwhelming the README.
